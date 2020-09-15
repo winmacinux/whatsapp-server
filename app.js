@@ -67,10 +67,10 @@ app.post("/verifyCode", (req, res) => {
 
 // Profile Update API endpoint
 app.post("/profileUpdate", (req, res) => {
-  const { profile, name } = req.body;
+  const { phoneNumber, profile, name } = req.body;
 
-  if (profile && name) {
-    updateUserProfile({ profile, name }).then((data) =>
+  if (phoneNumber && profile && name) {
+    updateUserProfile({ profile, name, phoneNumber }).then((data) =>
       res
         .status(200)
         .json({

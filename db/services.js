@@ -46,10 +46,11 @@ module.exports = {
       userModel
         .findOne({ phoneNumber: payload.phoneNumber })
         .then((user) => {
+          console.log(user);
           if (!user) reject("User does not exist!");
           else {
             user.name = payload.name;
-            user.photo = payload.photo;
+            user.profile = payload.profile;
             user
               .save()
               .then((result) => {
